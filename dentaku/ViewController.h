@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface Calc2ViewController : UIViewController {
+    IBOutlet UILabel *label;
+    BOOL startInput;
+}
+-(IBAction)numberButtonPressed:(id)sender;
+-(IBAction)clearButtonPressed:(id)sender;
 @end

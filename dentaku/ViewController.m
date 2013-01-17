@@ -6,9 +6,10 @@
 //  Copyright (c) 2013年 admin. All rights reserved.
 //
 
+
 #import "ViewController.h"
 
-@interface ViewController ()
+@interface UIViewController ()
 
 @end
 
@@ -18,7 +19,29 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    startInput = YES;
 }
+-(IBAction)numberButtonPressed:(id)sender
+{
+    UIButton *b = (UIButton *)sender;
+    
+    if( startImput ){
+        if( b.tag == 0) return;
+        label.text = [NSString stringWithFormat:@"%d",b.tag];
+        startInput = NO;
+    } else {
+        label.text = [NSString stringWithFormat:@"%@%d", label.text, b.tag];
+    }
+}
+
+-(IBAction)clearButtonPressed:(id)sender
+{
+    label.text = @"0";
+    startInput = YES;
+}
+
+
+
 
 - (void)didReceiveMemoryWarning
 {
