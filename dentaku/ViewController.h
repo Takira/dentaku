@@ -8,10 +8,25 @@
 
 #import <UIKit/UIKit.h>
 
-@interface Calc2ViewController : UIViewController {
-    IBOutlet UILabel *label;
+@interface ViewController : UIViewController {
+    __weak IBOutlet UILabel *label;
     BOOL startInput;
+    float currentValue;
+    int operation;
 }
--(IBAction)numberButtonPressed:(id)sender;
+
+- (IBAction)push1:(id)sender;
+- (IBAction)push2:(id)sender;
+- (IBAction)push3:(id)sender;
+- (IBAction)push4:(id)sender;
+- (IBAction)push5:(id)sender;
+- (IBAction)push6:(id)sender;
+- (IBAction)push7:(id)sender;
+- (IBAction)push8:(id)sender;
+- (IBAction)push9:(id)sender;
+- (IBAction)push10:(id)sender;
+
 -(IBAction)clearButtonPressed:(id)sender;
+-(IBAction)equalButtonPressed:(id)sender;
+-(IBAction)opButtonPressed:(id)sender;
 @end

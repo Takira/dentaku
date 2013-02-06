@@ -9,44 +9,106 @@
 
 #import "ViewController.h"
 
-@interface UIViewController ()
-
-@end
 
 @implementation ViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
     startInput = YES;
 }
--(IBAction)numberButtonPressed:(id)sender
-{
-    UIButton *b = (UIButton *)sender;
-    
-    if( startImput ){
-        if( b.tag == 0) return;
-        label.text = [NSString stringWithFormat:@"%d",b.tag];
+
+- (IBAction)push0:(id)sender {
+    [self nanka:0];
+}
+- (IBAction)push1:(id)sender {
+    [self nanka:1];
+}
+
+- (IBAction)push2:(id)sender {
+    [self nanka:2];
+}
+
+- (IBAction)push3:(id)sender {
+    [self nanka:3];
+}
+
+- (IBAction)push4:(id)sender {
+    [self nanka:4];
+}
+
+- (IBAction)push5:(id)sender {
+    [self nanka:5];
+}
+
+- (IBAction)push6:(id)sender {
+    [self nanka:6];
+}
+
+- (IBAction)push7:(id)sender {
+    [self nanka:7];
+}
+
+- (IBAction)push8:(id)sender {
+    [self nanka:8];
+}
+
+- (IBAction)push9:(id)sender {
+    [self nanka:9];
+}
+- (IBAction)push10:(id)sender {
+    [self nanka:10];
+}
+
+- (void)nanka:(int)number{
+    if ([label.text isEqualToString:@"0"]) {
+           label.text = [NSString stringWithFormat:@"%d",number];
         startInput = NO;
-    } else {
-        label.text = [NSString stringWithFormat:@"%@%d", label.text, b.tag];
+        if(number == 10){
+            label.text = [NSString stringWithFormat:@"0."];
+        }
+    }else{
+        if(number == 10){
+        label.text = [NSString stringWithFormat:@"%@.", label.text];
+    }else{
+        label.text = [NSString stringWithFormat:@"%@%d", label.text, number];
     }
+    }
+
 }
 
 -(IBAction)clearButtonPressed:(id)sender
 {
+    currentValue = 0;
     label.text = @"0";
+    startInput = YES;
+    operation = 0;
+}
+-(IBAction)equalButtonPressed:(id)sender
+{
+    if( operation == 0 ){
+        return;
+    } else if( operation == 1){
+        currentValue += [label.text floatValue];
+    } else if( operation == 2 ){
+        currentValue -= [label.text floatValue];
+    } else if( operation == 3 ){
+        currentValue *= [label.text floatValue];
+    } else {
+        currentValue /= [label.text floatValue];
+    }
+    
+    label.text = [NSString stringWithFormat:@"%g",currentValue];
     startInput = YES;
 }
 
 
-
-
-- (void)didReceiveMemoryWarning
+-(IBAction)opButtonPressed:(id)sender
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    UIButton *b = (UIButton *)sender;
+    currentValue = [label.text floatValue];
+    operation = b.tag;
+    startInput = YES;
 }
 
 @end
