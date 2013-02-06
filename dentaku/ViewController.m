@@ -61,17 +61,17 @@
 }
 
 - (void)nanka:(int)number{
-    if ([label.text isEqualToString:@"0"]) {
-        label.text = [NSString stringWithFormat:@"%d",number];
+    if ([ label.text isEqualToString:@"0"]) {
+         label.text = [NSString stringWithFormat:@"%d",number];
         startInput = NO;
         if(number == 10){
             label.text = [NSString stringWithFormat:@"0."];
         }
     }else{
         if(number == 10){
-        label.text = [NSString stringWithFormat:@"%@.", label.text];
+         label.text = [NSString stringWithFormat:@"%@.", label.text];
     }else{
-        label.text = [NSString stringWithFormat:@"%@%d", label.text, number];
+         label.text = [NSString stringWithFormat:@"%@%d", label.text, number];
     }
     }
 
@@ -82,7 +82,7 @@
 -(IBAction)clearButtonPressed:(id)sender
 {
     currentValue = 0;
-    label.text = @"0";
+     label.text = @"0";
     startInput = YES;
     operation = 0;
 }
@@ -103,7 +103,7 @@
         currentValue /= [label.text floatValue];
     }
     
-    label.text = [NSString stringWithFormat:@"%g",currentValue];
+     label.text = [NSString stringWithFormat:@"%g",currentValue];
     startInput = YES;
 }
 
