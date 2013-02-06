@@ -62,7 +62,7 @@
 
 - (void)nanka:(int)number{
     if ([label.text isEqualToString:@"0"]) {
-           label.text = [NSString stringWithFormat:@"%d",number];
+        label.text = [NSString stringWithFormat:@"%d",number];
         startInput = NO;
         if(number == 10){
             label.text = [NSString stringWithFormat:@"0."];
@@ -77,6 +77,8 @@
 
 }
 
+// clearが押されるとoperation=0として初期化する
+
 -(IBAction)clearButtonPressed:(id)sender
 {
     currentValue = 0;
@@ -84,6 +86,9 @@
     startInput = YES;
     operation = 0;
 }
+
+//　計算を行う。operation=0はclearボタンのこととしてほかの各演算子を小数点にも対応できるようにfloat型で呼び出す。
+
 -(IBAction)equalButtonPressed:(id)sender
 {
     if( operation == 0 ){

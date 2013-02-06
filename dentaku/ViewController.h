@@ -9,12 +9,13 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController {
-    __weak IBOutlet UILabel *label;
     BOOL startInput;
     float currentValue;
     int operation;
 }
+@property(nonatomic,retain) UILabel *label;
 
+- (IBAction)push0:(id)sender;
 - (IBAction)push1:(id)sender;
 - (IBAction)push2:(id)sender;
 - (IBAction)push3:(id)sender;

@@ -446,6 +446,7 @@
 				6BFA06E7169E752A001E7560 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6BFA06E8169E752A001E7560 /* Build configuration list for PBXNativeTarget "dentakuTests" */ = {
 			isa = XCConfigurationList;
@@ -454,6 +455,7 @@
 				6BFA06EA169E752A001E7560 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
