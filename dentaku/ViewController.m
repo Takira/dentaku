@@ -61,17 +61,17 @@
 }
 
 - (void)nanka:(int)number{
-    if ([ label.text isEqualToString:@"0"]) {
-         label.text = [NSString stringWithFormat:@"%d",number];
+    if ([_label.text isEqualToString:@"0"]) {
+         _label.text = [NSString stringWithFormat:@"%d",number];
         startInput = NO;
         if(number == 10){
-            label.text = [NSString stringWithFormat:@"0."];
+            _label.text = [NSString stringWithFormat:@"0."];
         }
     }else{
         if(number == 10){
-         label.text = [NSString stringWithFormat:@"%@.", label.text];
+         _label.text = [NSString stringWithFormat:@"%@.", _label.text];
     }else{
-         label.text = [NSString stringWithFormat:@"%@%d", label.text, number];
+         _label.text = [NSString stringWithFormat:@"%@%d", _label.text, number];
     }
     }
 
@@ -82,7 +82,7 @@
 -(IBAction)clearButtonPressed:(id)sender
 {
     currentValue = 0;
-     label.text = @"0";
+    _label.text = @"0";
     startInput = YES;
     operation = 0;
 }
@@ -94,16 +94,16 @@
     if( operation == 0 ){
         return;
     } else if( operation == 1){
-        currentValue += [label.text floatValue];
+        currentValue += [_label.text floatValue];
     } else if( operation == 2 ){
-        currentValue -= [label.text floatValue];
+        currentValue -= [_label.text floatValue];
     } else if( operation == 3 ){
-        currentValue *= [label.text floatValue];
+        currentValue *= [_label.text floatValue];
     } else {
-        currentValue /= [label.text floatValue];
+        currentValue /= [_label.text floatValue];
     }
     
-     label.text = [NSString stringWithFormat:@"%g",currentValue];
+     _label.text = [NSString stringWithFormat:@"%g",currentValue];
     startInput = YES;
 }
 
@@ -111,7 +111,7 @@
 -(IBAction)opButtonPressed:(id)sender
 {
     UIButton *b = (UIButton *)sender;
-    currentValue = [label.text floatValue];
+    currentValue = [_label.text floatValue];
     operation = b.tag;
     startInput = YES;
 }
